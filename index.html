@@ -1,0 +1,17 @@
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+
+d3.json("fy10_12_dc_budget_data.json", function(error, data) {
+	var fy10total = 0,
+		fy11total = 0,
+		fy12total = 0;
+	data.forEach(function (d){
+		fy10total = fy10total + parseInt(d["2010_original"]);
+		fy11total = fy11total + parseInt(d["2011_original"]);
+		fy12total = fy12total + parseInt(d["2012_original"]);
+	});
+	document.getElementById("fy2fy").innerHTML = "FY10 Topline = " + fy10total + "<br>FY11 Topline = " + fy11total + "<br>FY12 Topline = " + fy12total;
+});
+</script>
+<h1>This is a test</h1>
+<div id="fy2fy"></div>
